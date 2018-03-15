@@ -1,0 +1,23 @@
+server:
+  port: 4201
+db:
+  # base configuration for all connection
+  connection:
+    username: iwan
+    password: 'p@ssw0rd'
+    hostName: 127.0.0.1
+    hostPort: 3306
+    databaseName: untung
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://${db.connection.hostName}:${db.connection.hostPort}/${db.connection.databaseName}?useSSL=false
+    username: ${db.connection.username}
+    password: ${db.connection.password}
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
